@@ -1,0 +1,183 @@
+# About MATH2750 {.unnumbered #S00-about}
+
+
+This module is **MATH2750 Introduction to Markov Processes**. The module manager and lecturer is Dr Matthew Aldridge, and my email address is <m.aldridge@leeds.ac.uk>.
+
+
+## Organisation of MATH2750 {.unnumbered #about-module}
+
+This module lasts for 11 weeks. The first nine weeks run from 25 January to 26 March, then we break for Easter, and then the final two weeks run from 26 April to 7 May.
+
+
+### Notes and videos {.unnumbered #notes}
+
+The main way I expect you to learn the material for this course is by reading these notes and by watching the accompanying videos. I will set two sections of notes each week, for a total of 22 sections.
+
+Reading mathematics is a slow process. Each section roughly corresponds to one lecture last year, which would have been 50 minutes. If you find yourself regularly getting through sections in much less than an hour, you're probably not reading carefully enough through each sentence of explanation and each line of mathematics, including understanding the motivation as well as checking the accuracy.
+
+It is possible (but not recommended) to learn the material by only reading the notes and not watching the videos. It is not possible to learn the material by only watching the videos and not reading the notes.
+
+You are probably reading the web version of the notes. If you want a PDF copy (to read offline or to print out), then click the PDF button in the top ribbon of the page. (Warning: I have not made as much effort to make the PDF neat and tidy as I have the web version.)
+
+Since we will all be relying heavily on these notes, I'm even more keen than usual to hear about errors mathematical, typographical or otherwise. Please, please [email me](mailto:m.aldridge@leeds.ac.uk) if think you may have found any.
+
+
+### Problem sheets {.unnumbered #problem-sheets}
+
+There will be 10 problem sheets; Problem Sheet $n$ covers the material from the two sections from week $n$ (Sections $2n -1$ and $2n$), and will be discussed in your workshop in week $n+1$.
+
+
+### Lectures {.unnumbered #lectures}
+
+There will be one online synchronous "lecture" session each week, on Tuesdays at 1400, with me, run through Zoom.
+
+This will not be a "lecture" in the traditional sense of the term, but will be an opportunity to re-emphasise material you have already learned from notes and videos, to give extra examples, and to answer common student questions, with some degree of interactivity.
+
+I will assume you have completed all the work for the previous week by the time of the lecture, but I will not assume you've started the work for that week itself.
+
+I am very keen to hear about things you'd like to go through in the lectures; please [email me](mailto:m.aldridge@leeds.ac.uk) with your suggestions.
+
+
+### Workshops {.unnumbered #workshops}
+
+There will be 10 workshops, starting in the second week. The main goal of the workshops will be to go over your answers to the problems sheets in smaller classes. You will have been assigned to one of three workshop groups, meeting on Mondays or Tuesdays, led by [Jason Klebes](https://eps.leeds.ac.uk/maths/pgr/8790/jason-klebes), [Dr Jochen Voss](http://www1.maths.leeds.ac.uk/~voss/), or me. Your workshop will be run through Zoom or Microsoft Teams; your workshop leader will contact you before the end of this week with arrangements.
+
+My recommended approach to problem sheets and workshops is the following:
+
+* Work through the problem sheet before the workshop, spending plenty of time on it, and making multiple efforts at questions you get stuck on. I recommend spending *at least three hours* on each problem sheet, in more than one block. Collaboration is encouraged when working through the problems, but I recommend writing up your work on your own.
+* Take advantage of the smaller group setting of the workshop to ask for help or clarification on questions you weren't able to complete.
+* After the workshop, attempt again the questions you were previously stuck on.
+* If you're still unable to complete a question after this second round of attempts, *then* consult the solutions.
+
+
+### Assessments {.unnumbered #assessments}
+
+There will be four pieces of assessed coursework, making up a total of 15% of your mark for the module. Assessments 1, 3 and 4 will involve writing up answers to a few problems, in a similar style to the problem sheets, and are worth 4% each. (In response to previous student feedback, there are fewer questions per assessment.) Assessment 2 will be a report on some computational work ([see below](#about--computing)) and is worth 3%.
+
+Copying, plagiarism and other types of cheating are not allowed and will be dealt with in accordance with University procedures.
+
+The assessments deadlines are:
+
+* Assessment 1: Thursday 11 February 1400 (week 3)
+* Assessment 2 (Computational Worksheet 2): Thursday 18 March 1400 (week 8)
+* Assessment 3: Thursday 25 March 1400 (week 9)
+* Assessment 4: Thursday 6 May 1400 (week 11)
+
+Work will be submitted via Gradescope.
+
+Your markers are Jason Klebes, Macauley Locke, and Muyang Zhang -- but you should [contact the module leader](mailto:m.aldridge@leeds.ac.uk) if you have marking queries, not the markers directly.
+
+
+### Computing worksheets {.unnumbered #about-computing}
+
+There will be two computing worksheets, which will look at the material in the course through simulations in R. This material is examinable. You should be able to work through the worksheets in your own time, but if you need help, there will be optional online drop-in sessions in the weeks 4 and 7 with [Muyang Zhang](https://eps.leeds.ac.uk/maths/pgr/6422/muyang-zhang) through Microsoft Teams. (Your computing drop-in session may be listed as "Practical" on your timetable.)
+
+The first computing worksheet will be a practice run, while a report on the second computing worksheet will be the second assessed piece of work.
+
+
+### Drop-in sessions {.unnumbered #dropin}
+
+If you there is something in the course you wish to discuss in detail, the place for the is the optional weekly drop-in session. The drop-in sessions are an optional opportunity for you to ask questions you have to a member of staff -- nothing will happen unless you being your questions.
+
+You will have been assigned to one of three groups on Tuesdays or Wednesdays with [Nikita Merkulov](https://eps.leeds.ac.uk/maths/pgr/4992/nikita-merkulov) or me. The drop-in sessions will be run the Microsoft Teams. Your drop-in session would be an excellent place to go if you are having trouble understanding something in the written notes, or if you're still struggling on a problem sheet question after your workshop.
+
+
+### Microsoft Team {.unnumbered #team}
+
+I have set up [a Microsoft Team](https://teams.microsoft.com/l/channel/19%3a8cb8008c95204bbeaefa8ee7d48c1a13%40thread.tacv2/General?groupId=1c138eac-0c54-43b0-9d20-d4cf3d65c40a&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb) for the course. I propose to use the "Q and A" channel there as a discussion board. This is a good place to post questions about material from the course, and -- even better! -- to help answer you colleagues' questions. The idea is that you all as a group should help each other out. I will visit a couple of times a week to clarify if everybody is stumped by a question, or if there is disagreement.
+
+
+### Time management {.unnumbered #time}
+
+It is, of course, up to you how you choose to spend your time on this module. But, if you're interested, my recommendations would be something like this:
+
+* **Every week:** 7.5 hours per week
+   * **Notes and videos:** 2 sections, 1 hour each
+   * **Problem sheet:** 3.5 hours per week
+   * **Lecture:** 1 hour per week
+   * **Workshop:** 1 hour per week
+* **When required:**
+   * **Assessments 1, 2 and 4:** 2 hours each
+   * **Computer worksheets:** 2 hours each
+   * **Revision**: 12 hours
+* **Total:** 100 hours
+
+
+### Exam {.unnumbered #exam}
+
+There will be an exam -- or, rather, a final "online time-limited assessment" -- after the end of the module, making up the remaining 85% of your mark. The exam will consist of four questions, and you are expected to answer all of them. You will have 48 hours to complete the exam, although the exam itself should represent half a day to a day's work. Further details to follow nearer the time.
+
+
+### Who should I ask about...?  {.unnumbered #ask}
+
+* *I don't understand something in the notes or on a problem sheet*: Go to your weekly drop-in session, or post a question on [the Teams Q and A board](https://teams.microsoft.com/l/channel/19%3a5fcd058b7074426ca1f7d1cf2052d3b4%40thread.tacv2/Q%2520and%2520A?groupId=1c138eac-0c54-43b0-9d20-d4cf3d65c40a&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb). (If you email me, I am likely to respond, "That would be an excellent question for your drop-in session or the Q and A board.")
+* *I don't understand something in on a computational worksheet:* Go to your computing drop-in session in weeks 4 or 7.
+* *I have an admin question about general arrangements for the module:* [Email me](mailto:m.aldridge@leeds.ac.uk).
+* *I have an admin question about arrangements for my workshop:* Email your workshop leader.
+* *I have suggestion for something to cover in the lectures:* [Email me](mailto:m.aldridge@leeds.ac.uk).
+* *I need an extension on or exemption from an assessment:* [Email the Maths Taught Students Office](mailto:Maths.Taught.Students@leeds.ac.uk).
+
+
+## Content of MATH2750 {.unnumbered #about-content}
+
+
+### Prerequisites {.unnumbered #prereqs}
+
+Some students have asked what background you'll be expected to know for this course.
+
+It's essential that you're very comfortable with the basics of probability theory: events, probability, discrete and continuous random variables, expectation, variance, approximations with the normal distribution, etc. Conditional probability and independence are particularly important concepts in this course. This course will use the binomial, geometric, Poisson, normal and exponential distributions, although the notes will usually remind you about them first, in case you've forgotten.
+
+Many students on the module will have studied these topics in MATH1710 Probability and Statistics 1; others will have covered these in different modules.
+
+
+### Syllabus {.unnumbered #syllabus}
+
+The course has two major parts: the first part will cover processes in discrete time and the second part processes in continuous time.
+
+An outline plan of the topics covered is the following. (Remember that one week's work is two sections of notes.)
+
+* **Discrete time Markov chains** [12 sections]
+   * Introduction to stochastic processes [1 section]
+   * Important examples: Random walk, gambler's ruin, linear difference equations, examples from actuarial science [4 sections]
+   * General theory: transition probabilities, $n$-step transition probabilities, class structure, periodicity, hitting times, recurrence and transience, stationary distributions, long-term behaviour [6 sections]
+   * Revision [1 section]
+* **Continuous time Markov jump processes** [10 sections]
+   * Important examples: Poisson process, counting processes, queues [5 sections]
+   * General theory: holding times and jump chains, forward and backward equations, class structure, hitting times, stationary distributions, long-term behaviour [4 sections]
+   * Revision [1 section]
+
+
+### Books {.unnumbered #books}
+
+You can do well on this module by reading the notes and watching the videos, attending the lectures and workshops, and working on the problem sheets, assignments and practicals, without any further reading. However, students can benefit from optional extra background reading or an alternative view on the material.
+
+My favourite book on Markov chains, which I used a lot while planning this course and writing these notes, is:
+
+* J.R. Norris, *Markov Chains*, Cambridge Series in Statistical and Probabilistic Mathematics, Cambridge University Press, 1997. Chapters 1-3.
+
+This a whole book just on Markov processes, including some more detailed material that goes beyond this module. Its coverage of of both discrete and continuous time Markov processes is very thorough. [Chapter 1 on discrete time Markov chains is available online.](http://www.statslab.cam.ac.uk/~james/Markov/)
+
+Other good books with sections on Markov processes that I have used include:
+
+* G.R. Grimmett and D.R. Stirzaker, *Probability and Random Processes*, 4th edition, Oxford University Press, 2020. Chapter 6.
+* G. Grimmet and D. Walsh, *Probability: an introduction*, 2nd edition, Oxford University Press, 2014. Chapter 12.
+* D.R. Stirzaker, [*Elementary Probability*](https://leeds.primo.exlibrisgroup.com/permalink/44LEE_INST/13rlbcs/alma991013131349705181), 2nd edition, Cambridge University Press, 2003. Chapter 9.
+
+ Grimmett and Stirzaker is an excellent handbook that covers most of undergraduate probability -- I bought a copy when I was a second-year undergraduate and still keep it next to my desk. 
+ <!-- Chapter 6 of Grimmett and Stirzaker covers Markov chains is available online. -->
+[The whole of Stirzaker is available online.](https://leeds.primo.exlibrisgroup.com/permalink/44LEE_INST/13rlbcs/alma991013131349705181)
+
+A gentler introduction with plenty of examples is provided by:
+
+* P.W. Jones and P. Smith, [*Stochastic Processes: an introduction*](
+https://leeds.primo.exlibrisgroup.com/permalink/44LEE_INST/13rlbcs/alma991002938739705181), 3nd edition, Texts in Statistical Science, CRC Press, 2018. Chapters 2-7.
+
+although it doesn't cover everything in this module. [The whole book is available online.](
+https://leeds.primo.exlibrisgroup.com/permalink/44LEE_INST/13rlbcs/alma991002938739705181)
+
+(I've listed the newest editions of these books, but older editions will usually be fine too.)
+
+
+### And finally... {.unnumbered #finally}
+
+These notes were mostly written by Matthew Aldridge in 2018--19, and have received updates (mostly in Sections 9--11) and reformatting this year. Some of the material (especially Section 1, Section 6, and numerous diagrams) follows closely previous notes by Dr Graham Murphy, and I also benefited from reading earlier notes by Dr Robert Aykroyd and Prof Alexander Veretennikov. Dr Murphy's general help and advice was also very valuable. Many thanks to students in previous runnings of the module for spotting errors and suggesting improvements.
