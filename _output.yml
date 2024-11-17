@@ -4,7 +4,7 @@ bookdown::gitbook:
     toc:
       collapse: section
       before: |
-        <li><a href="./">MATH2750 Notes</a></li>
+        <li><a href="./">Topics in Quantum Information Science</a></li>
       after: |
         <li></li>
     download: ["pdf"]

@@ -1,0 +1,135 @@
+# (PART\*) QAlgorithms {-}
+
+# Grover's Algorithm    
+
+The algorithm is as follows:
+
+1.  Prepare the superposition state \( | s \rangle = H^{\otimes n} | 0 \rangle = \frac{1}{\sqrt{2^n}} \sum_{x = 0}^{2^n - 1} | x \rangle \).
+2.  Apply Grover's iteration \( O(\sqrt{N}) \) times.
+3.  Measure the state in the computational basis.
+
+The Grover's iteration is as follows:
+\[ U_G = H^{\otimes n} R_0 H^{\otimes n} O_{f, \pm} \]
+where
+-  \( O_{f, \pm} \) is the phase oracle that flips the sign of the state \( | x \rangle \) if \( f(x) = 1 \).
+-  \( R_0 \) is the reflection operator that reflects the state \( | s \rangle \) about the state \( | 0^n §rangle \). 
+
+
+
+# Quantum Singular Value Transformation (QSVT)
+
+## Introduction {-}
+This algorithm is part of the *grand unification* program, which aims to find out what the common structure is between the different quantum algorithms. Having such a unification that all quantum algorithms developed so far can be seen as special cases of it, we may be able to optimize the quantum algorithms and develop new ones more easily.
+
+The claim is that all (?) quantum algorithms can be seen as polynomial transformations of the singular values of a linear operator (embedded in a unitary). With this in mind, we can expect that transforming with the optimal polynomial will allow us to answer specific questions about the singular values, hopefully with a speedup.
+
+## Preleminaries {-}
+
+### Parity of Polynomials {-}
+
+Let \( P \) be a polynomial. We call \( P \) _even_ if \( P(-x) = P(x) \) for all \( x \in \mathbb{R} \), and _odd_ if \( P(-x) = -P(x) \) for all \( x \in \mathbb{R} \). The even part of \( P \) is denoted by \( P_e = \frac{P(x) + P(-x)}{2} \) and the odd part by \( P_o = \frac{P(x) - P(-x)}{2} \).
+
+### Rotations around the Pauli Axes {-}
+
+Consider the Pauli matrices
+\[ X = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}, \quad Y = \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix}, \quad Z = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}. \]
+One can show that any \( 2 \times 2 \) density matrix can be written as
+\[ \rho = \frac{1}{2} (I + r_x X + r_y Y + r_z Z), \]
+where \( (r_x, r_y, r_z) \) is a vector in 
+\( \mathbb{R}^3 \) satisfying \( \| r \| \leq 1 \).
+Now, consider applying the unitary \( e^{i \theta X} = \begin{bmatrix} \cos(\theta) & i\sin(\theta) \\ i\sin(\theta) & \cos(\theta) \end{bmatrix} \) to the state \( \rho \). Let us compute each term of \( \rho' = e^{i \theta X} \rho e^{-i \theta X} \) separately:
+
+\begin{align}
+e^{i \theta X} X e^{-i \theta X} &= \begin{bmatrix} \cos(\theta) & i\sin(\theta) \\ i\sin(\theta) & \cos(\theta) \end{bmatrix} \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \begin{bmatrix} \cos(\theta) & -i\sin(\theta) \\ -i\sin(\theta) & \cos(\theta) \end{bmatrix} = X,\\
+e^{i \theta X} Y e^{-i \theta X} &= \begin{bmatrix} \cos(\theta) & i\sin(\theta) \\ i\sin(\theta) & \cos(\theta) \end{bmatrix} \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix} \begin{bmatrix} \cos(\theta) & -i\sin(\theta) \\ -i\sin(\theta) & \cos(\theta) \end{bmatrix} = - \sin(2\theta) Z + \cos(2\theta) Y,\\
+e^{i \theta X} Z e^{-i \theta X} &= \begin{bmatrix} \cos(\theta) & i\sin(\theta) \\ i\sin(\theta) & \cos(\theta) \end{bmatrix} \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} \begin{bmatrix} \cos(\theta) & -i\sin(\theta) \\ -i\sin(\theta) & \cos(\theta) \end{bmatrix} = \cos(2\theta) Z + \sin(2\theta) Y.
+\end{align}
+
+We see that the resulting state has coordinates \[(r_x, r_y(\cos(2\theta)+\sin(2\theta)), r_z(\cos(2\theta)-\sin(2\theta))),\]
+showing that the transformation is a rotation of angle \(-2\theta\) around the \(X\) axis in the Bloch sphere.
+
+With a similar reasoning, we can deduce the following:
+
+::: {.proposition #proprotation}
+The following gates are rotations with angle \(-2\theta\) around the corresponding axes in the Bloch sphere:
+\[ e^{i \theta X} = \begin{bmatrix} \cos(\theta) & i\sin(\theta) \\ i\sin(\theta) & \cos(\theta) \end{bmatrix}, \quad e^{i \theta Y} = \begin{bmatrix} \cos(\theta) & \sin(\theta) \\ -\sin(\theta) & \cos(\theta) \end{bmatrix}, \quad e^{i \theta Z} = \begin{bmatrix} e^{i\theta} & 0 \\ 0 & e^{-i\theta} \end{bmatrix}. \] 
+:::
+## Quantum Signal Processing {-}
+This framework was introduced by @LYC16. The problem statement is as follows:
+
+Consider having access to the following single-qubit unitaries:
+
+- a _signal_ gate 
+\[ W(a) = \begin{bmatrix} a & i\sqrt{1-a^2} \\ i\sqrt{1-a^2} & a \end{bmatrix} = \begin{bmatrix} \cos(\theta/2) & i \sin(\theta/2) \\ i \sin(\theta/2) & \cos(\theta/2) \end{bmatrix}, \]
+where \( a \in [-1,1] \) and \( \theta = - 2 \arccos(a) \),
+
+- a family of tunable _signal processing_ gates
+\[ S(\phi) = e^{i\phi Z} = \begin{bmatrix} e^{i\phi} & 0 \\ 0 & e^{-i\phi} \end{bmatrix} = e^{i\phi} \begin{bmatrix} 1 & 0 \\ 0 & e^{-2i\phi} \end{bmatrix}.^{Which roation is this one?} \]
+
+Suppose then we can apply any sequence of unitaries of the form
+\[ U_{\vec{\phi}} = S(\phi_0) \Pi_{i = 1}^{d} W(a) S(\phi_i), \]
+where \( a\) is unknown but the vector \( \vec{\phi} = (\phi_0, \ldots, \phi_d) \) can be arbitrarily chosen. Which unitaries can we obtain this way?
+
+::: {.theorem #thqsp name="Quantum Signal Processing"}
+Let \( \vec{\phi} = (\phi_0, \ldots, \phi_d) \in \mathbb{R}^{d+1} \). Then there exist \( P , Q \in \mathbb{C}[a] \) 
+such that for all \( a \in [-1,1] \), 
+\[ U_{\vec{\phi}} = \begin{bmatrix} P(a) & i Q(a) \sqrt{1 - a^2} \\ i Q^*(a) \sqrt{1 - a^2} & P^*(a) \end{bmatrix} \]
+and
+
+1. \(\operatorname{deg}(P) \leq d \) and \(\operatorname{deg}(Q) \leq d - 1 \),
+2. \( P \) has parity \( d \mod 2 \) and \( Q \) has parity \( (d - 1) \mod 2 \),
+3. for all \( a \in [-1,1] \), \( | P(a) |^2 + (1 - a^2) | Q(a) |^2 = 1 \).
+Moreover, if \( P , Q \in \mathbb{C}[a] \) satisfy the above conditions, then there exists \( \vec{\phi} \in \mathbb{R}^{d+1} \) such that \( U_{\vec{\phi}} \) is of the form above.
+:::
+
+As stated by @grandUnif21, we may be interested in the achivable polynomial transformation of the input on a subsystem. Let us choose
+
+\[\operatorname{Poly}(a) = \langle + | U_{\vec{\phi}} | + \rangle = \operatorname{Re}(P(a)) + i \operatorname{Re}(Q(a)) \sqrt{1 - a^2}.  \]
+
+Then, we can prove that \(\vec{\phi}\) can be chosen such that \(\langle + | U_{\vec{\phi}} | + \rangle\) approximates any real polynomial \( \operatorname{Poly}\) with
+
+1. \(\operatorname{Poly}\) has parity \( d \mod 2 \),
+2. \(\operatorname{deg}(\operatorname{Poly}) \leq d \),
+3. \(\| \operatorname{Poly}(a) \|\leq 1 \) for all \( a \in [-1,1] \).
+
+## Amplitude Amplification {-}
+
+Assume that we have a quantum circuit \( A \) that acts on \( m \) qubits in the way that
+\[ A | 0^m \rangle = \sqrt{p} | G \rangle + \sqrt{1 - p} | B \rangle, \]
+where \( | G \rangle \) is for some reason a good state for us that we want to amplify its weight, and \( | B \rangle \) is a bad state. We also assume that \( \langle G | B \rangle = 0 \).
+
+### Amplitude Amplification via QSP {-}
+
+The problem statement is as follows: given \(U \) and \( U^{\dagger} \), such that \( \langle A_0 | U | B_0 \rangle \neq 0 \), 
+and operators \( A_\phi = e^{i \phi | A_0 \rangle \langle A_0 |} \) and \( B_\phi = e^{i \phi | B_0 \rangle \langle B_0 |} \),
+and we want to build a gate \( Q\) such that
+\[ | \langle A_0 | Q | B_0 \rangle \rightarrow 1 \].
+
+Let us define \( | A_{\perp} \rangle \) and \( | B_{\perp} \rangle \) as
+
+- \( U | B_0 \rangle = a | A_0 \rangle + \sqrt{1 - a^2} | A_{\perp} \rangle \),
+- \( U | B_{\perp} \rangle = \sqrt{1 - a^2} | A_0 \rangle - a | A_{\perp} \rangle \).
+
+Then, as long as we prepare a \( U^{\dagger} \) after \( U \), after a \( U^{\dagger} \) , etc, we are mapping from \( \operatorname{Span} \{ | B_0 \rangle, | B_{\perp} \rangle \} \) to \( \operatorname{Span} \{ | A_0 \rangle, | A_{\perp} \rangle \} \), and back.
+
+Thus we are essentially working with a qubit.
+
+::: {.theorem #thaa name="Amplitude Amplification"} 
+\[ \langle A_0 | \Pi_{i = 1}^{d/2} U B_{\phi_{2i-1}} U^{\dagger} A_{\phi_{2i}} | B_0 \rangle = \operatorname{Poly}(a) \]
+with 
+\( \operatorname{Poly}\) satisfying the conditions of the QSP theorem.
+:::
+
+Having the above, all we need is to find \( \operatorname{Poly}(a)\) such that \( | \operatorname{Poly}(a) | \) gets as close to 1 as possible.
+
+::: {.remark #raa} 
+This can be done in an oblivious way, i.e., without knowing the value of \( a \).
+:::
+
+
+::: {.mysummary}
+**In the next section**, we'll see the first, and most important, example of a discrete time discrete space Markov chain: the "random walk".
+:::
+
+
+

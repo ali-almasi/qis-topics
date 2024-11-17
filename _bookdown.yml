@@ -1,8 +1,8 @@
 rmd_files:
   - index.Rmd
   - about.Rmd
-  - sections/S01-stochastic-processes.Rmd
-  - sections/S02-random-walks.Rmd
+  - sections/S01-grover-amplitude-amplification.Rmd
+  - sections/S02-quantum-singular-value-transformation.Rmd
   - problems/P01.Rmd
   - sections/S03-gamblers-ruin.Rmd
   - sections/S04-ldes.Rmd
@@ -38,9 +38,9 @@ rmd_files:
   - sections/S22-end.Rmd
   - problems/P11.Rmd
   - computing/computing.Rmd
-book_filename: "math2750"
+book_filename: "Topics in Quantum Information Science"
 output_dir: "docs"
 delete_merged_file: true
 language:
   ui:
-    chapter_name: "Section "
+    chapter_name: "Chapter"

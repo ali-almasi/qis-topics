@@ -1,9 +1,11 @@
-def:def-markov-property
 fig:rw-pics
 exm:rw1
 exm:rw2
 eq:rw
 eq:bin
+prp:proprotation
+thm:thqsp
+thm:thaa
 eq:lde
 eq:cheq
 exm:lde1
@@ -134,10 +136,6 @@ eq:MMsu
 thm:MMinf-thm
 fig:MMine-diag
 thm:MMone-thm
-S01-stochastic-processes
-models
-stochastic-processes
-markov-property
 S02-random-walk
 simple-random-walk
 general-random-walks
